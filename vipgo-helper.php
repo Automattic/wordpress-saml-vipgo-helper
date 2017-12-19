@@ -42,7 +42,7 @@ add_action( 'init', 'vipgo_saml_checker', 0 );
 
 /**
  * Hook the init action to remove the application of forced
- * login from the `/xmlrpc.php` endpoint. This is done to
+ * login from XML RPC requests. This is done to
  * allow Jetpack to connect to the site.
  *
  * @return void
