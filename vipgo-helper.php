@@ -40,3 +40,18 @@ function vipgo_saml_checker() {
 
 add_action( 'init', 'vipgo_saml_checker', 0 );
 
+/**
+ * Hook the init action to remove the application of forced
+ * login from the `/xmlrpc.php` endpoint. This is done to
+ * allow Jetpack to connect to the site.
+ *
+ * @return void
+ **/
+function wpcom_vip_allow_xml_rpc() {
+        if ( defined( 'XMLRPC_REQUEST' ) && true === XMLRPC_REQUEST ) {
+                // This action is added in the case of the `onelogin_saml_forcelogin`
+                // option being truthy.
+                remove_action( 'init', 'saml_sso', 1 );
+        }
+}
+add_action( 'init', 'wpcom_vip_allow_xml_rpc', 0 );
