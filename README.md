@@ -13,4 +13,4 @@ The plugin does the following:
 
 * Prepend the plugin's cookies with `wordpress_` in order to allow requests to bypass Varnish cache
 * Specific cache control headers for particular responses during the authentication flow
-* Remove forced login redirection from the `/xmlrpc.php` path
+* Remove forced login redirection for XML RPC requests
